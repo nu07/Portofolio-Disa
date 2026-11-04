@@ -15,7 +15,7 @@ services:
     expose:
       - "3000"
     networks:
-      - dis-core
+      - disa-core
     restart: on-failure:1000
 
   nginx:
