@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-quicksand);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-cream: #fdf9f6;
+  --color-blush-50: #fbf2f4;
+  --color-blush-100: #f7e4ea;
+  --color-blush-200: #f0cbd6;
+  --color-blush-300: #e4a9bc;
+  --color-blush-400: #d683a1;
+  --color-blush-500: #c66388;
+  --color-blush-600: #a94a6d;
+  --color-blush-700: #8a3a58;
+  --color-mauve-100: #f3e6ea;
+  --color-mauve-200: #e3ccd4;
+  --color-mauve-300: #c9a5b2;
+  --color-mauve-400: #a97c8e;
+  --color-mauve-500: #8a5a6d;
+  --color-mauve-600: #6f4354;
+  --color-mauve-700: #593343;
+  --color-mauve-800: #462634;
+  --color-mauve-900: #351a26;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-mauve-800);
+}
+
+::selection {
+  background-color: var(--color-blush-200);
+  color: var(--color-mauve-900);
+}
+
+/* subtle dot pattern for decorative areas */
+.dots {
+  background-image: radial-gradient(var(--color-blush-200) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+
+/* soft radial glow blobs */
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  pointer-events: none;
 }
