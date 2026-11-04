@@ -1,6 +1,6 @@
 services:
   app:
-    container_name: wisnu-next-apps
+    container_name: disa-next-apps
     image: config-app:latest
     build:
       context: .
@@ -15,11 +15,11 @@ services:
     expose:
       - "3000"
     networks:
-      - wisnu-core
+      - dis-core
     restart: on-failure:1000
 
   nginx:
-    container_name: wisnu-next-nginx-proxy
+    container_name: disa-next-nginx-proxy
     image: config-nginx:latest
     build:
       context: .
@@ -31,19 +31,19 @@ services:
     depends_on:
       - app
     networks:
-      - wisnu-core
+      - disa-core
     restart: unless-stopped
 
   cloudflared:
-    container_name: wisnu-cloudflared-tunnel
+    container_name: disa-cloudflared-tunnel
     image: cloudflare/cloudflared:latest
     command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
     networks:
-      - wisnu-core
+      - disa-core
     depends_on:
       - nginx
     restart: unless-stopped
 
 networks:
-  wisnu-core:
+  disa-core:
     driver: bridge
